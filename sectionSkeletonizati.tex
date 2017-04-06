@@ -17,7 +17,7 @@ To perform these tasks we will use \ijmenu{Plugins > Skeleton > Skeletonize (2D/
 \item[Skeletonization]\hfill\\
 The label mask first needs to be binarized (all non zero voxels are objects) using \ijmenu{Image > Adjust > Threshold} with a lower threshold of 1 gray value. After this you can skeletonize the binary image using \ijmenu{Plugins > Skeleton > Skeletonize (2D/3D)}.  In order to visually check the skeletonization you may overlay the binary mask (or the original data) with the skeleton using for instance the command \ijmenu{Image > Color > Merge Channels...}. The original image might be assigned the gray channel and the skeleton the red channel.
 \item[Skeleton analysis]\hfill\\
-Use \ijmenu{Plugins > Skeleton > Analyze Skeleton (2D/3D)} to analyze the skeleton (for the moment leave all pruning options unchecked). Examine the image output, which has the following color-coding:
+Use \ijmenu{Plugins> Skeleton > Analyze Skeleton (2D/3D)} to analyze the skeleton (for the moment leave all pruning options unchecked). Examine the image output, which has the following color-coding:
 \begin{itemize}
 \item End-point voxels: Gray value of 30, appearing blue.
 \item Junction voxels: Gray value 70, appearing purple.
