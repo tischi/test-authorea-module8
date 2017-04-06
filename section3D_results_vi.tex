@@ -1,0 +1,13 @@
+\section{3-D results visualization}
+At the end of the macro we can automatically load, show and even animate the data in the 3-D viewer, using commands such as:
+
+\begin{itemize}
+\item \ijmacro{run("3D Viewer");}
+\item \ijmacro{call("ij3d.ImageJ3DViewer.setCoordinateSystem", "false");}
+\item \ijmacro{call("ij3d.ImageJ3DViewer.add", "ImageName", "None", "RefToImageName", "0", "true", "true", "true", "2", "0");}
+\item \ijmacro{call("ij3d.ImageJ3DViewer.startAnimate");}
+\item \ijmacro{wait(NumberOfMilliseconds);}
+\item \ijmacro{call("ij3d.ImageJ3DViewer.stopAnimate");}
+\end{itemize}
+The third item is used to add an image called "ImageName" to the viewer and label it "RefToImageName" in the 3D viewer \ijmenu{Edit > Select ..} menu entry.
+In case you did not have time to write up the complete macro during the practical a possible solution is provided in: (code/\textbf{TubeAnalyst.ijm}). An example overlay of the output files is shown in figure ~\ref{fig:bloodvesselsproj}.

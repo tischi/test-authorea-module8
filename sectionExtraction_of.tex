@@ -1,0 +1,34 @@
+\section{Extraction of biologically relevant parameters}
+
+\subsection{Introduction}
+As was previously motivated in section \ref{sec:mod8lab0} the density of the vascularization and branching points and the thickness of the vessels are crucial age indicators to understand how a tumour developed and possibly necrosed. We will now estimate these parameters on the segmented data.
+
+\subsection{Workflow}
+
+\begin{description}
+\item[Generate an ImageJ macro script]\hfill\\
+The computation of the biologically relevant parameters cannot be achieved via the ImageJ menu, but you have to write an ImageJ macro.
+\item[Vessel length and number of branch points]\hfill\\
+To compute the total vessel length you have to loop through the entries of the results table that you got from \ijmenu{Plugins > Skeleton > Analyze Skeleton (2D/3D)} and add up and/or multiply the respective entries in the respective columns (''\# Branches'', ''Average Branch Length''). In addition to for-looping through the rows of the results table, you will need the \ijmacro{getResult("Column", row)} macro function in order to extract the values from the table.
+\item[Vessel volume and total imaged volume]\hfill\\
+To compute the total vessel volume you should use the information obtained from the ImageJ macro function \ijmacro{Stack.getstatistics}. The volume can be expressed in voxel units or in physical unit. For the conversion the calibration can be retrieved with \ijmacro{getPixelSize(width, height, depth, unit)}.
+
+\item[Density of vascularization]\hfill\\
+To derive the density of vascularization one needs to compute the fraction of space occupied by the vessels. This can be done by dividing the volume previously computed by the total imaged volume, which you can compute using a combination of the following functions:
+\begin{itemize}
+\item \ijmacro{getWidth()}
+\item \ijmacro{getHeight()}
+\item \ijmacro{nSlices}
+\end{itemize}
+\item[Vessel width]\hfill\\
+The average vessel width can readily be computed from the parameters we previously extracted... can you figure out how?
+
+\end{description}
+
+\subsection{Generate an ImageJ macro script}
+
+Implement a macro perfroming the above operations.
+
+\textbf{\underline{Hint}} : The easiest way is to estimate the average section of the vessels and then only to derive their average thickness by assuming their section is close to a disk.
+
+\lstinputlisting{code/TubeAnalyst-6.ijm}
